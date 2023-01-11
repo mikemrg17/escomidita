@@ -1,6 +1,6 @@
 <template>
     <main class="whole-screen">
-        <div>
+        <div class="text-red-700">
             Iniciar sesión
         </div>
         <label>Email:</label><input type="text" v-model="state.email" />
