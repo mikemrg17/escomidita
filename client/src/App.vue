@@ -3,6 +3,9 @@
     <RouterView v-slot="{ Component, route }">
       <component :is="Component" :key="route.path" class="min-h-screen" />
     </RouterView>
+    <div v-if="show_app_footer">
+      <NavBar />
+    </div>
   </div>
 </template>
 
@@ -11,6 +14,7 @@ import { RouterView, useRouter } from "vue-router"
 import { computed, onMounted } from "vue"
 import { supabase } from "./supabase"
 import { useUserStore } from "./stores/user";
+import NavBar from "./components/navigation/NavBar.vue"
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -59,4 +63,10 @@ onMounted(async () => {
 
 const user = computed(() => userStore.currentUser)
 const loading = computed(() => userStore.loading)
+
+const show_app_footer = computed(() => {
+  const footer_routes = ["app", "user"]
+  const current_route = router.currentRoute.value.name as string
+  return footer_routes.includes(current_route) && user.value
+})
 </script>
