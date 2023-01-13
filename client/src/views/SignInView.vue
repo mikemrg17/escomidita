@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 w-screen">
+<div class="bg-white flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 w-screen">
       <div class="bg-white sm:rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-md text-main-color">
         <img class="mx-auto h-12 w-auto" src="../assets/logo.svg" alt="Your Company"/>
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Iniciar sesión</h2>
@@ -15,14 +15,14 @@
             <div>
               <label class="block text-sm font-medium text-secondary-color">Email</label>
               <div class="mt-1">
-                <input v-model="state.email" type="email" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                <input v-model="state.email" type="email" class="block w-full appearance-none rounded-md border border-secondary-color px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
               </div>
             </div>
   
             <div class="my-4">
               <label for="password" class="block text-sm font-medium text-secondary-color">Password</label>
               <div class="mt-1">
-                <input v-model="state.password" type="password" class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
+                <input v-model="state.password" type="password" class="block w-full appearance-none rounded-md border border-secondary-color px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" />
               </div>
             </div>
 
