@@ -20,8 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
-
 defineProps(["image", "ref", "name", "store_name", "price"])
 
 </script>
