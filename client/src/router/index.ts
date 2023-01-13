@@ -55,6 +55,21 @@ const router = createRouter({
             component: () => import("../views/AppView.vue"),
             beforeEnter: auth_guard,
         },
+        {
+            path: "/cart",
+            name: "cart",
+            component: () => import("../views/CartView.vue"),
+        },
+        {
+            path: "/profile",
+            name: "profile",
+            component: () => import("../views/ProfileView.vue"),
+        },
+        {
+            path: "/store",
+            name: "store",
+            component: () => import("../views/StoreView.vue"),
+        }
     ],
 })
 

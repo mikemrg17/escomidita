@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <RouterView v-slot="{ Component, route }">
-      <component :is="Component" :key="route.path" class="min-h-screen" />
-    </RouterView>
-    <div v-if="show_app_footer">
+  <div class="max-w-full">
+    <div v-if="show_app_header" class="sticky top-[0%] h-[12vh] z-10">
       <NavBar />
     </div>
+    <RouterView v-slot="{ Component, route }">
+      <component :is="Component" :key="route.path" class="w-screen h-[88vh] max-w-full z-0" />
+    </RouterView>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ supabase.auth.onAuthStateChange((event: any, session: any) => {
   if(session?.user){
     userStore.setCurrentAccessToken(session.accessToken)
     userStore.setCurrentUser(session.user)
-    router.push({ name: "app" })
+    //router.push({ name: "app" })
   }
 })
 
@@ -64,9 +64,9 @@ onMounted(async () => {
 const user = computed(() => userStore.currentUser)
 const loading = computed(() => userStore.loading)
 
-const show_app_footer = computed(() => {
-  const footer_routes = ["app", "user"]
+const show_app_header = computed(() => {
+  const header_routes = ["app", "user", "cart", "store"]
   const current_route = router.currentRoute.value.name as string
-  return footer_routes.includes(current_route) && user.value
+  return header_routes.includes(current_route) && user.value
 })
 </script>

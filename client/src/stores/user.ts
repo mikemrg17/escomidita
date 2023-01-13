@@ -5,10 +5,12 @@ export const useUserStore = defineStore("user", {
         currentUser: null,
         currentAccessToken: null,
         loading: false,
+        balance: null
     } as {
         currentUser: any
         currentAccessToken: string | null
         loading: boolean
+        balance: any
     }),
     getters: {
         getCurrentUser: (state) => state.currentUser,
