@@ -20,7 +20,7 @@
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
-                <a v-for="item in navigation" :key="item.name" :href="item.href" :class="[item.current ? 'text-main-color' : 'hover:text-secondary-color', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+                <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'text-main-color' : 'hover:text-secondary-color', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</RouterLink>
               </div>
             </div>
           </div>

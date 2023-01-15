@@ -1,5 +1,5 @@
 <template>
-    <div @click="add_item">
+    <div @click="add_item" class="border">
         <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
             <img :src="product.images" class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
         </div>
@@ -26,9 +26,8 @@ const props = defineProps(["product"])
 
 const { product } = toRefs(props)
 
-const add_item = async () => {
+const add_item = () => {
     cart_store.add_to_cart(product?.value)
-    console.log(cart_store.get_cart)
 }
 
 </script>
