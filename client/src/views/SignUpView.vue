@@ -20,7 +20,7 @@
     -->
     <div class="bg-white flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 w-screen">
       <div class="bg-white sm:rounded-lg sm:px-10 sm:mx-auto sm:w-full sm:max-w-md text-main-color">
-        <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"/>
+        <img class="mx-auto h-12 w-auto" src="../assets/logo.svg" alt="Your Company"/>
         <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Registrarse</h2>
 
         <p class="mt-2 text-center text-sm text-gray-600">¿Ya tienes una cuenta creada?
