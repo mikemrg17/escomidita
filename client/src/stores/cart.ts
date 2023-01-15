@@ -10,11 +10,11 @@ export const use_cart_store = defineStore("cart", {
         get_cart: (state) => state.cart,
     },
     actions: {
-        add_to_cart(item: any){
-            //Agregar al carrito
+        async add_to_cart(item: any){
+            this.cart.push(item)
         },
         delete_from_cart(item: any){
-            //Eliminar producto del carrito
+            //dsdj
         }
     }
 })

@@ -1,1 +1,5 @@
-<template>Store</template>
+<template>
+    <div>
+        sdiosjd
+    </div>
+</template>

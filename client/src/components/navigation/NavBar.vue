@@ -68,7 +68,7 @@
   
   const navigation = [
     { name: 'Home', href: '/app', current: true },
-    { name: 'Tienda', href: '/store', current: false },
+    { name: 'Tiendas', href: '/stores', current: false },
     { name: 'Carrito', href: '/cart', current: false },
   ]
 
