@@ -68,7 +68,7 @@ const user = computed(() => userStore.currentUser)
 const loading = computed(() => userStore.loading)
 
 const show_app_header = computed(() => {
-  const header_routes = ["app", "user", "cart", "stores", "store"]
+  const header_routes = ["app", "profile", "cart", "stores", "store"]
   const current_route = router.currentRoute.value.name as string
   return header_routes.includes(current_route) && user.value
 })
