@@ -22,12 +22,12 @@
                 <div class="mt-6 grid grid-rows-4 gap-6">
                   <div class="col-span-12 sm:col-span-6">
                     <label for="first-name" class="block text-sm font-medium text-gray-700">Contraseña anterior</label>
-                    <input type="password" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" :value="user.password" />
+                    <input type="password" name="first-name" id="first-name" autocomplete="given-name" class="mt-1 block rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" value="userpassword" />
                   </div>
 
                   <div class="col-span-12 sm:col-span-6">
                     <label for="last-name" class="block text-sm font-medium text-gray-700">Nueva contraseña</label>
-                    <input type="password" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" :value="user.password" />
+                    <input type="password" name="last-name" id="last-name" autocomplete="family-name" class="mt-1 block rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" value="userpassword" />
                   </div>
                   <div class="grow flex items-end">
                       <a class="block font-medium text-white bg-red rounded-lg  px-4 py-2 text-center mt-auto max-w-[16rem] ml-auto"> GUARDAR
@@ -68,7 +68,7 @@
   } from '@heroicons/vue/24/outline'
 
   const subNavigation = [
-    { name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
+    { name: 'Profile', href: '../profile', icon: UserCircleIcon, current: false },
     { name: 'Password', href: '../password',  icon: KeyIcon, current: true },
   ]
 

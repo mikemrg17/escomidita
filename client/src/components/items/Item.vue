@@ -1,10 +1,10 @@
 <template>
-    <div @click="add_item" class="border">
+    <div @click="add_item" class="border p-4 rounded-lg">
         <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
             <img :src="product.images" class="h-full w-full object-cover object-center lg:h-full lg:w-full" />
         </div>
-        <div class="mt-4 flex justify-between">
-            <div>
+        <div class="mt-4 flex justify-between font-bold">
+            <div class="">
                 <h3 class="text-sm text-gray-700">
                         <span aria-hidden="true" class="absolute inset-0" />
                             {{ product.name }}

@@ -46,3 +46,48 @@ export const use_stores_store = defineStore("stores", {
         }
     }
 })
+
+export const use_stores_profile = defineStore("profiles", {
+    state: () => ({
+        profiles_data: [],
+        current_store: null,
+        current_store_data: null,
+        updated_stores_data: false,
+        loading: false,
+    }) as {
+        profiles_data: any
+        current_store: any
+        current_store_data: any
+        updated_stores_data: boolean
+        loading: boolean
+    },
+    getters: {
+        get_current_user: (state) => (selected_user: any) => state.profiles_data.find(
+            (user: any) => user.id === selected_user
+        )
+    },
+    actions: {
+        async get_stores_data() {
+            this.loading = true
+            if(this.profiles_data.length !== 0){
+                this.loading = false
+                return
+            }
+            
+            const { data: stores, error } = await supabase.from('stores').select('*')
+            this.profiles_data = stores
+            this.loading = false
+        },
+        async set_current_store(store: any) {
+            this.updated_stores_data = false
+            this.current_store = store
+            this.current_store_data = this.get_current_user(store)
+            
+            await new Promise((resolve) => setTimeout(resolve, 20))
+            this.updated_stores_data = true
+        },
+        set_loading(loading: boolean) {
+            this.loading = loading
+        }
+    }
+})
