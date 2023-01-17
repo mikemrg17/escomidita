@@ -1,4 +1,4 @@
-<template v-if="dataReady">
+<template v-if="!loading">
   <div>
     <main>
       <div class="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-16">
@@ -18,7 +18,7 @@
               <div class="py-6 px-4 sm:p-6 lg:pb-8">
                 <div>
                   <h2 class="text-lg font-medium leading-6 text-gray-900">Perfil</h2>
-                  <p>{{ userInfo.email }}</p>
+                  <p>{{ user.email }}</p>
                 </div>
 
                 <div class="mt-6 flex flex-col lg:flex-row">
@@ -81,11 +81,10 @@
 
                   <div class="col-span-12 sm:col-span-6">
                     <label for="company" class="block text-sm font-medium text-gray-700">Teléfono</label>
-                    <input type="text" name="company" id="company" autocomplete="organization" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" :value="userInfo.phone" />
+                    <input type="text" name="company" id="company" autocomplete="organization" class="mt-1 block w-full rounded-md border border-gray-300 py-2 px-3 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" :value="user.phone" />
                   </div>
                   <div class="grow flex items-end">
-                      <a class="block font-medium text-white bg-red rounded-lg  px-4 py-2 text-center mt-auto max-w-[16rem] ml-auto"
-                          href="#"> GUARDAR
+                      <a class="block font-medium text-white bg-red rounded-lg  px-4 py-2 text-center mt-auto max-w-[16rem] ml-auto"> GUARDAR
                       </a>
                   </div>
                 </div>
@@ -99,6 +98,15 @@
 </template>
 
   <script setup lang="ts">
+  
+  import { computed } from "vue"
+  import { useUserStore } from "../stores/user";
+
+  const user_store = useUserStore()
+
+  const user = computed(() => user_store.currentUser)
+  const loading = computed(() => user_store.loading)
+
   import { ref } from 'vue'
   import { supabase } from "../supabase"
   import { MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
@@ -115,12 +123,10 @@
 
 
   const userInfo = {
-      email: 'marcolg@test.com',
       handle: 'MarcoLg',
       description: 'Catador de tacos',
       name: 'Marco',
       lastname: 'Lavarrios',
-      phone: '12345678',
       imageUrl:
         'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80',
   }

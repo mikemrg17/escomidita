@@ -67,6 +67,12 @@ const router = createRouter({
             beforeEnter: auth_guard,
         },
         {
+            path: "/password",
+            name: "password",
+            component: () => import("../views/ProfilePassword.vue"),
+            beforeEnter: auth_guard,
+        },
+        {
             path: "/stores",
             name: "stores",
             component: () => import("../views/StoresView.vue"),
