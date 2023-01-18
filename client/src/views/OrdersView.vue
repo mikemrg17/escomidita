@@ -31,7 +31,7 @@
                   </dl>
                 </div>
                 <!-- Products -->
-                <ul role="list" class="divide-y divide-gray-200">
+                <ul role="list" class="divide-y divide-gray-200 h-[40vh]" :class="order.products.length > 1 ? 'overflow-y-scroll' : ''">
                   <li v-for="product in order.products" :key="product.id" class="p-4 sm:p-6">
                     <div class="flex items-center sm:items-start">
                       <div class="h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg bg-gray-200 sm:h-40 sm:w-40">
@@ -46,7 +46,8 @@
                       </div>
                     </div>
                   </li>
-                  <div class="flex justify-between">
+                </ul>
+                <div class="flex justify-between">
                       <div class="flex items-center">
                         <CheckCircleIcon class="h-5 w-5 text-green-500" aria-hidden="true" />
                         <p class="ml-2 text-sm font-medium text-gray-500">
@@ -63,7 +64,6 @@
                         </div>
                       </div>
                     </div>
-                </ul>
               </div>
             </div>
           </div>
