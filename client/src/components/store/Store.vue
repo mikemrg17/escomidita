@@ -19,7 +19,6 @@ const props = defineProps(["store"])
 const { store } = toRefs(props)
 
 const open_store = async () => {
-    //await stores_store.get_current_store(store?.value.id)
     router.push({ name: "store", params: { id: store?.value.id } })
 }
 
