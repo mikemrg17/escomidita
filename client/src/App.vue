@@ -4,8 +4,13 @@
       <NavBar />
     </div>
     <RouterView v-slot="{ Component, route }">
-      <component :is="Component" :key="route.path" class="w-screen h-[88vh] max-w-full z-0" />
+        <transition name="page-slide" mode="out-in">
+          <component :is="Component" :key="route.path" class="w-screen max-w-full z-0" />
+        </transition>
     </RouterView>
+    
+    
+      
   </div>
 </template>
 
@@ -68,7 +73,7 @@ const user = computed(() => userStore.currentUser)
 const loading = computed(() => userStore.loading)
 
 const show_app_header = computed(() => {
-  const header_routes = ["app", "profile", "password", "cart", "stores", "store"]
+  const header_routes = ["app", "user", "cart", "stores", "store", "profile", "password", "orders"]
   const current_route = router.currentRoute.value.name as string
   return header_routes.includes(current_route) && user.value
 })

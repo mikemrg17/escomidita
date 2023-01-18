@@ -20,7 +20,7 @@
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
-                <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.current ? 'text-main-color' : 'hover:text-secondary-color', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</RouterLink>
+                <RouterLink v-for="item in navigation" :key="item.name" :to="item.href" :class="[item.name == selected ? 'text-main-color' : 'hover:text-secondary-color', 'px-3 py-2 rounded-md text-sm font-medium']" :aria-current="item.name == selected ? 'page' : undefined" @click="change_current(item.name)">{{ item.name }}</RouterLink>
               </div>
             </div>
           </div>
@@ -30,7 +30,7 @@
               <div>
                 <MenuButton class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span class="sr-only">Open user menu</span>
-                  <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80" alt="" />
+                  <img class="h-8 w-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
                 </MenuButton>
               </div>
               <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
@@ -50,7 +50,7 @@
   
       <DisclosurePanel class="sm:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3">
-          <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+          <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.name == selected ? 'text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block px-3 py-2 rounded-md text-base font-medium']" :aria-current="item.name == selected ? 'page' : undefined">{{ item.name }}</DisclosureButton>
         </div>
       </DisclosurePanel>
     </Disclosure>
@@ -60,17 +60,25 @@
   <script setup lang="ts">
   import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
   import { RouterLink } from 'vue-router';
-  import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline"
+  import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline"
   import { supabase } from '../../supabase';
   import { useRouter } from 'vue-router';
+  import { ref } from 'vue';
 
   const router = useRouter()
+
+  const selected = ref("Home")
   
   const navigation = [
-    { name: 'Home', href: '/app', current: true },
-    { name: 'Tiendas', href: '/stores', current: false },
-    { name: 'Carrito', href: '/cart', current: false },
+    { name: 'Home', href: '/app'},
+    { name: 'Tiendas', href: '/stores'},
+    { name: 'Carrito', href: '/cart'},
+    { name: 'Pedidos', href: '/orders' }
   ]
+
+  const change_current = (item: any) => {
+    selected.value = item
+  }
 
   const handle_logout = async () => {
     const { error } = await supabase.auth.signOut()

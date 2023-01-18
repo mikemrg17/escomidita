@@ -5,7 +5,7 @@ export const use_stores_store = defineStore("stores", {
     state: () => ({
         stores_data: [],
         current_store: null,
-        current_store_data: null,
+        current_store_data: null,   
         updated_stores_data: false,
         loading: false,
     }) as {

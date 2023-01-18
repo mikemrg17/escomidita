@@ -26,6 +26,9 @@ export const use_cart_store = defineStore("cart", {
         },
         delete_from_cart(item: any){
             //dsdj
+        },
+        empty_cart() {
+            this.cart = []
         }
     }
 })

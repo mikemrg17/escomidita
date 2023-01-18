@@ -1,13 +1,16 @@
 <template>
     <div class="bg-white">
-      <div class="lg:p-10 p-6">
-        <h2 class="text-2xl text-base-color font-thin">Hola usuario, ¿qué quieres comer hoy?</h2>
-        <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          <div v-for="store in stores" :key="store.id" v-if="!loading">
-            <div v-for="product in store?.products" :key="product.id">
+      <div class="p-10">
+        <h2 class="text-2xl text-base-color font-thin">Hola, ¿qué quieres comer hoy?</h2>
+        <div v-for="store in stores" :key="store?.id" v-if="!loading">
+          <div class="text-white">s</div>
+          <div class="mt-10">
+            <p class="text-secondary-color">{{ store?.name }}</p>
+            <div class="flex flex-row w-[93vw] mt-6" :class="store.products?.length > 3 ? 'overflow-x-scroll' : ''">
               <Item
+                v-for="product in store?.products" :key="product?.id"
                 :product="product"
-              />
+              />  
             </div>
           </div>
         </div>

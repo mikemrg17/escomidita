@@ -64,13 +64,6 @@ const router = createRouter({
             path: "/profile",
             name: "profile",
             component: () => import("../views/ProfileView.vue"),
-            beforeEnter: auth_guard,
-        },
-        {
-            path: "/password",
-            name: "password",
-            component: () => import("../views/ProfilePassword.vue"),
-            beforeEnter: auth_guard,
         },
         {
             path: "/stores",
@@ -81,6 +74,21 @@ const router = createRouter({
             path:"/stores/:id",
             name: "store",
             component: () =>  import("../views/StoreView.vue"),
+        },
+        {
+            path:"/newProduct",
+            name: "newProduct",
+            component: () =>  import("../views/NewProductView.vue"),
+        },
+        {
+            path:"/newStore",
+            name: "newStore",
+            component: () =>  import("../views/NewStoreView.vue"),
+        },
+        {
+            path: "/orders",
+            name: "orders",
+            component: () => import("../views/OrdersView.vue")
         }
     ],
 })
